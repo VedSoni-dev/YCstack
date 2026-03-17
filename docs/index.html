@@ -3,28 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YCstack — A YC Partner in Your Terminal</title>
-  <meta name="description" content="One command. Nine skills. Every founder gets a YC partner in their terminal. Reviews, mock interviews, application prep, pitch coaching — all contextualized to your codebase.">
+  <title>/fc — startup wisdom, deployed at 2am</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- NOISE OVERLAY -->
-  <div class="noise"></div>
+  <!-- GRAIN OVERLAY -->
+  <div class="grain"></div>
 
   <!-- NAV -->
   <nav class="nav">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">
-        <span class="logo-mark">/</span>yc
-      </a>
+      <a href="#" class="nav-logo">/fc</a>
       <div class="nav-links">
+        <a href="#mentors">Mentors</a>
         <a href="#skills">Skills</a>
-        <a href="#how">How It Works</a>
-        <a href="https://github.com/VedSoni-dev/YCstack" target="_blank">GitHub</a>
+        <a href="#pipeline">Journey</a>
         <a href="#install" class="nav-cta">Install</a>
       </div>
     </div>
@@ -32,202 +27,288 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-content">
-      <div class="hero-eyebrow">Claude Code skill suite</div>
-      <h1>A <span class="text-accent">YC partner</span><br>in your terminal.</h1>
+    <div class="hero-inner">
+      <p class="hero-eyebrow">your co-founder that never sleeps</p>
+      <h1>startup wisdom,<br><span class="cursive">deployed at 2am.</span></h1>
       <p class="hero-sub">
-        One command reads your codebase and gives you YC-caliber startup advice.
-        Review, roast, interview prep, pitch coaching, application builder —
-        nine skills, always up to date, always specific to your code.
+        You can code. You just don't know how to <em>build</em> yet.<br>
+        We put 20 years of startup wisdom inside your terminal—<br>
+        specific to your codebase, not a YouTube video you'll forget.
       </p>
       <div class="hero-install" id="install">
-        <div class="install-block" onclick="copyInstall(this)">
-          <code>git clone https://github.com/VedSoni-dev/YCstack.git ~/.claude/skills/ycstack && cd ~/.claude/skills/ycstack && bash setup</code>
-          <button class="copy-btn" aria-label="Copy install command">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="5" y="5" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M3 11V3.5A1.5 1.5 0 014.5 2H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-          </button>
+        <div class="code-block" onclick="copyToClipboard(this)">
+          <span class="code-prompt">$</span>
+          <code>git clone https://github.com/VedSoni-dev/FCstack.git ~/.claude/skills/fcstack && cd ~/.claude/skills/fcstack && bash setup</code>
+          <span class="copy-btn">copy</span>
         </div>
-        <p class="install-note">Requires <a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank">Claude Code</a>. Free and open source.</p>
       </div>
     </div>
 
-    <!-- TERMINAL DEMO -->
-    <div class="hero-terminal">
-      <div class="terminal">
-        <div class="terminal-chrome">
-          <div class="terminal-dots">
-            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-          </div>
-          <span class="terminal-title">claude ~/my-startup</span>
+    <!-- HERO TERMINAL -->
+    <div class="terminal-window">
+      <div class="terminal-bar">
+        <div class="terminal-dots">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
         </div>
-        <div class="terminal-body">
-          <div class="term-input">
-            <span class="term-prompt">$</span>
-            <span class="term-cmd" id="typewriter"></span>
-            <span class="term-cursor"></span>
-          </div>
-          <div class="term-output" id="term-output"></div>
+        <span class="terminal-title">~/my-startup</span>
+      </div>
+      <div class="terminal-body" id="hero-terminal">
+        <div class="term-line">
+          <span class="term-prompt">$</span>
+          <span class="term-cmd" id="typewriter"></span>
+          <span class="term-cursor"></span>
         </div>
+        <div class="term-output" id="hero-output"></div>
       </div>
     </div>
   </section>
 
-  <!-- STATS BAR -->
-  <section class="stats-bar">
-    <div class="stat"><span class="stat-num">9</span><span class="stat-label">skills</span></div>
-    <div class="stat-divider"></div>
-    <div class="stat"><span class="stat-num">1</span><span class="stat-label">command</span></div>
-    <div class="stat-divider"></div>
-    <div class="stat"><span class="stat-num">0</span><span class="stat-label">infrastructure</span></div>
-    <div class="stat-divider"></div>
-    <div class="stat"><span class="stat-num">&infin;</span><span class="stat-label">always current</span></div>
+  <!-- PROBLEM -->
+  <section class="problem-section">
+    <div class="section-label">the problem</div>
+    <h2>You watch the videos. You read the essays.<br><span class="cursive">Then you make the mistake anyway.</span></h2>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="p-num">2,000+</div>
+        <div class="p-label-text">videos of startup gold</div>
+        <div class="p-detail">Trapped on YouTube. You can't search 2,000 videos for the 90-second clip that answers your pricing question at 2am.</div>
+      </div>
+      <div class="problem-card">
+        <div class="p-num">Millions</div>
+        <div class="p-label-text">of builders who can code</div>
+        <div class="p-detail">But can't find problems, talk to users, price products, or think about moats. They can ship features. They can't ship companies.</div>
+      </div>
+      <div class="problem-card">
+        <div class="p-num">30 min</div>
+        <div class="p-label-text">of mentorship per week</div>
+        <div class="p-detail">That's all most founders get. The advice is the same mentors have given 100 times. Mentor time doesn't scale. AI does.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENTORS -->
+  <section class="mentors-section" id="mentors">
+    <div class="section-label">who's in your terminal</div>
+    <h2>Ask the people who've<br><span class="cursive">seen it all before.</span></h2>
+    <p class="mentors-sub">Real startup mentors, simulated in your terminal. They read your code. They know your stack. They don't sugarcoat.</p>
+
+    <div class="mentors-grid">
+      <div class="mentor-card">
+        <div class="mentor-avatar">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Michael_Seibel.jpg/440px-Michael_Seibel.jpg" alt="Michael Seibel" loading="lazy">
+        </div>
+        <div class="mentor-info">
+          <div class="mentor-name">Michael Seibel</div>
+          <div class="mentor-role">Users & Simplicity</div>
+          <div class="mentor-style">"Explain it like I'm not technical."</div>
+        </div>
+        <div class="mentor-cmd">/fc-interview</div>
+      </div>
+
+      <div class="mentor-card">
+        <div class="mentor-avatar">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Dalton_Caldwell_2012_%28cropped%29.jpg/440px-Dalton_Caldwell_2012_%28cropped%29.jpg" alt="Dalton Caldwell" loading="lazy">
+        </div>
+        <div class="mentor-info">
+          <div class="mentor-name">Dalton Caldwell</div>
+          <div class="mentor-role">Moats & Business Model</div>
+          <div class="mentor-style">"Waitlists don't count. Ship it."</div>
+        </div>
+        <div class="mentor-cmd">/fc-interview</div>
+      </div>
+
+      <div class="mentor-card">
+        <div class="mentor-avatar">
+          <img src="https://pbs.twimg.com/profile_images/1289653683800399873/JdsEAFVb_400x400.jpg" alt="Gustaf Alstromer" loading="lazy">
+        </div>
+        <div class="mentor-info">
+          <div class="mentor-name">Gustaf Alstromer</div>
+          <div class="mentor-role">Growth & Metrics</div>
+          <div class="mentor-style">"What's your activation rate? Not signups."</div>
+        </div>
+        <div class="mentor-cmd">/fc-office-hours</div>
+      </div>
+
+      <div class="mentor-card">
+        <div class="mentor-avatar">
+          <img src="https://pbs.twimg.com/profile_images/856034577656397824/TLeBMKTW_400x400.jpg" alt="Jared Friedman" loading="lazy">
+        </div>
+        <div class="mentor-info">
+          <div class="mentor-name">Jared Friedman</div>
+          <div class="mentor-role">Technical Architecture</div>
+          <div class="mentor-style">"Show me the schema. Not the pitch deck."</div>
+        </div>
+        <div class="mentor-cmd">/fc-office-hours</div>
+      </div>
+    </div>
   </section>
 
   <!-- SKILLS -->
   <section class="skills" id="skills">
-    <div class="section-label">SKILL SUITE</div>
-    <h2 class="section-title">Nine ways to think<br>like a <span class="text-accent">YC partner</span>.</h2>
-    <p class="section-sub">Every skill reads your codebase. Every piece of advice is about YOUR company.</p>
+    <div class="section-label">the toolkit</div>
+    <h2>5 skills. Each one reads your code.<br><span class="cursive">Every answer is about your startup.</span></h2>
 
     <div class="skills-grid">
-      <div class="skill-card reveal">
-        <div class="skill-tag">Analysis</div>
-        <h3 class="skill-name">review</h3>
-        <p>Full startup analysis. Scores idea, market, product, moat, growth, team. Cites real YC essays with URLs.</p>
+      <div class="skill-card">
+        <div class="skill-slash">/fc</div>
+        <h3>Review</h3>
+        <p>Scores idea, market, product, moat, growth, team. Gives a verdict. Tells you what to fix today.</p>
+        <div class="skill-modes">
+          <span>/fc review</span>
+          <span>/fc roast</span>
+          <span>/fc pitch</span>
+          <span>/fc metrics</span>
+        </div>
       </div>
-      <div class="skill-card reveal">
-        <div class="skill-tag">Feedback</div>
-        <h3 class="skill-name">roast</h3>
-        <p>PG-style brutal honesty. Strips your marketing language. Names the hard truth you won't say out loud.</p>
+
+      <div class="skill-card">
+        <div class="skill-slash">/fc-apply</div>
+        <h3>Application Builder</h3>
+        <p>17 real questions, one at a time. Drafts answers from your codebase. Stress-tests each one. Video script included.</p>
+        <div class="skill-modes">
+          <span>17 questions</span>
+          <span>video script</span>
+          <span>strength score</span>
+        </div>
       </div>
-      <div class="skill-card reveal">
-        <div class="skill-tag">Application</div>
-        <h3 class="skill-name">apply</h3>
-        <p>Interactive application builder. All 17 questions, one at a time. Drafts from your codebase, stress-tests each answer.</p>
+
+      <div class="skill-card featured">
+        <div class="skill-slash">/fc-interview</div>
+        <h3>Mock Interview</h3>
+        <p>10-minute rapid-fire. Michael & Dalton grill you. They interrupt. They push back. ACCEPT / WAITLIST / REJECT.</p>
+        <div class="skill-modes">
+          <span>10 min sim</span>
+          <span>2 partners</span>
+          <span>scorecard</span>
+        </div>
       </div>
-      <div class="skill-card featured reveal">
-        <div class="skill-tag">Interview</div>
-        <h3 class="skill-name">interview</h3>
-        <p>Mock 10-minute partner interview. Michael & Dalton grill you. Interruptions. Follow-ups. Scorecard with ACCEPT/REJECT verdict.</p>
+
+      <div class="skill-card">
+        <div class="skill-slash">/fc-office-hours</div>
+        <h3>Office Hours</h3>
+        <p>Pick a mentor. Bring a problem. They don't give you the answer—they ask the questions that lead you to it.</p>
+        <div class="skill-modes">
+          <span>4 mentors</span>
+          <span>interactive</span>
+          <span>homework</span>
+        </div>
       </div>
-      <div class="skill-card reveal">
-        <div class="skill-tag">Pitch</div>
-        <h3 class="skill-name">demo-day</h3>
-        <p>60-second Demo Day pitch from your codebase. Scores each section. Tests against three investor archetypes.</p>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-tag">Coaching</div>
-        <h3 class="skill-name">office-hours</h3>
-        <p>Pick a partner. Bring a problem. They ask the questions that lead you to the answer. Ends with homework.</p>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-tag">Data</div>
-        <h3 class="skill-name">metrics</h3>
-        <p>Hunts your codebase for growth signals. Analytics, payments, auth. Recommends your north star metric.</p>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-tag">Readiness</div>
-        <h3 class="skill-name">speed-run</h3>
-        <p>Full pre-flight check. 10 dimensions scored. Overall readiness verdict. Prioritized action plan for the week.</p>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-tag">Research</div>
-        <h3 class="skill-name">founders-like-you</h3>
-        <p>Finds YC alumni with similar companies. Surfaces their pitches, pivots, and growth stories. Learn from pattern matching.</p>
+
+      <div class="skill-card">
+        <div class="skill-slash">/fc-demo-day</div>
+        <h3>Demo Day Coach</h3>
+        <p>60-second pitch from your codebase. Scores each section. Tests against 3 investor archetypes.</p>
+        <div class="skill-modes">
+          <span>60s pitch</span>
+          <span>investor test</span>
+          <span>iterate</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
-  <section class="how" id="how">
-    <div class="section-label">ARCHITECTURE</div>
-    <h2 class="section-title">Install once.<br>Skills <span class="text-accent">fetch themselves</span>.</h2>
-    <p class="section-sub">The orchestrator lives locally. Skills live on GitHub. New skills appear automatically — no update needed.</p>
-
-    <div class="arch-diagram reveal">
-      <div class="arch-col arch-local">
-        <div class="arch-header">YOUR MACHINE</div>
-        <div class="arch-box">
-          <div class="arch-file">~/.claude/skills/yc/SKILL.md</div>
-          <div class="arch-desc">The orchestrator. The only installed file.</div>
-          <div class="arch-steps">
-            <div class="arch-step"><span class="step-num">1</span> Reads your codebase</div>
-            <div class="arch-step"><span class="step-num">2</span> Asks what you need</div>
-            <div class="arch-step"><span class="step-num">3</span> Fetches the right skill</div>
-            <div class="arch-step"><span class="step-num">4</span> Executes with live YC knowledge</div>
+  <!-- TEACH -->
+  <section class="teach-section">
+    <div class="teach-inner">
+      <div class="teach-left">
+        <div class="section-label">the gap</div>
+        <h2>The difference between<br><span class="cursive">coding and building.</span></h2>
+        <ul>
+          <li>Finding a real problem <span class="dim">(not a solution looking for one)</span></li>
+          <li>Talking to users <span class="dim">(not building in a vacuum)</span></li>
+          <li>Pricing and charging <span class="dim">(not "we'll monetize later")</span></li>
+          <li>Measuring what matters <span class="dim">(not vanity metrics)</span></li>
+          <li>Knowing when to pivot <span class="dim">(not sunk cost death spirals)</span></li>
+        </ul>
+      </div>
+      <div class="teach-right">
+        <div class="comparison">
+          <div class="comp-col bad">
+            <div class="comp-header">Now</div>
+            <div class="comp-item">Watch a 45-min video</div>
+            <div class="comp-item">Think "that's smart"</div>
+            <div class="comp-item">Forget it by Tuesday</div>
+            <div class="comp-item">Make the mistake anyway</div>
+            <div class="comp-item">Google it at 2am</div>
+            <div class="comp-item">Get generic SEO advice</div>
+          </div>
+          <div class="comp-col good">
+            <div class="comp-header">With /fc</div>
+            <div class="comp-item">Run /fc review in your repo</div>
+            <div class="comp-item">Get advice for YOUR product</div>
+            <div class="comp-item">Citing the exact essay that applies</div>
+            <div class="comp-item">With an action item for TODAY</div>
+            <div class="comp-item">Come back tomorrow, run it again</div>
+            <div class="comp-item">Continuous. Contextual. Compounding.</div>
           </div>
         </div>
-      </div>
-      <div class="arch-arrow">
-        <svg width="80" height="24" viewBox="0 0 80 24"><path d="M0 12h64M56 4l12 8-12 8" stroke="var(--accent)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span class="arch-arrow-label">WebFetch</span>
-      </div>
-      <div class="arch-col arch-remote">
-        <div class="arch-header">GITHUB</div>
-        <div class="arch-box">
-          <div class="arch-file">VedSoni-dev/YCstack</div>
-          <div class="arch-desc">Skill repository. Always up to date.</div>
-          <div class="arch-files">
-            <span class="af">index.json</span>
-            <span class="af">review.md</span>
-            <span class="af">roast.md</span>
-            <span class="af">apply.md</span>
-            <span class="af">interview.md</span>
-            <span class="af">demo-day.md</span>
-            <span class="af">office-hours.md</span>
-            <span class="af">metrics.md</span>
-            <span class="af">speed-run.md</span>
-            <span class="af">founders-like-you.md</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="how-features">
-      <div class="how-feature reveal">
-        <div class="hf-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <h4>Zero infrastructure</h4>
-        <p>No servers. No databases. No API keys. Just a markdown file and Claude Code.</p>
-      </div>
-      <div class="how-feature reveal">
-        <div class="hf-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M23 6l-9.5 9.5-5-5L1 18" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 6h6v6" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <h4>Always current</h4>
-        <p>Skills are fetched from GitHub on every run. Add a new skill — users get it instantly.</p>
-      </div>
-      <div class="how-feature reveal">
-        <div class="hf-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke="var(--accent)" stroke-width="2"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/></svg>
-        </div>
-        <h4>Live YC knowledge</h4>
-        <p>WebSearches for real YC essays, lectures, and partner talks. Cites sources with URLs.</p>
-      </div>
-      <div class="how-feature reveal">
-        <div class="hf-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <h4>Works offline</h4>
-        <p>Embedded fallback review if GitHub is unreachable. You always get value.</p>
       </div>
     </div>
   </section>
 
-  <!-- FINAL CTA -->
-  <section class="cta-section">
-    <div class="cta-inner">
-      <h2>Every founder deserves<br>a <span class="text-accent">YC partner</span>.</h2>
-      <p>Not just the 1,000 who get in. Every builder on earth.</p>
-      <div class="cta-install">
-        <div class="install-block large" onclick="copyInstall(this)">
-          <code>git clone https://github.com/VedSoni-dev/YCstack.git ~/.claude/skills/ycstack && cd ~/.claude/skills/ycstack && bash setup</code>
-          <button class="copy-btn" aria-label="Copy install command">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="5" y="5" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M3 11V3.5A1.5 1.5 0 014.5 2H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-          </button>
-        </div>
-        <p class="install-note">Then run <code>/yc</code> in any project.</p>
+  <!-- PIPELINE / JOURNEY -->
+  <section class="journey-section" id="pipeline">
+    <div class="section-label">the founder journey</div>
+    <h2 class="journey-title">From first commit<br><span class="cursive">to demo day.</span></h2>
+    <div class="journey-path">
+      <div class="journey-stop">
+        <div class="journey-dot"></div>
+        <div class="journey-label">/fc review</div>
+        <div class="journey-desc">Am I ready?</div>
+      </div>
+      <div class="journey-line"></div>
+      <div class="journey-stop">
+        <div class="journey-dot"></div>
+        <div class="journey-label">/fc-apply</div>
+        <div class="journey-desc">Build the app</div>
+      </div>
+      <div class="journey-line"></div>
+      <div class="journey-stop">
+        <div class="journey-dot"></div>
+        <div class="journey-label">/fc-interview</div>
+        <div class="journey-desc">Practice</div>
+      </div>
+      <div class="journey-line"></div>
+      <div class="journey-stop active">
+        <div class="journey-dot"></div>
+        <div class="journey-label">GET IN</div>
+        <div class="journey-desc">You made it</div>
+      </div>
+      <div class="journey-line"></div>
+      <div class="journey-stop">
+        <div class="journey-dot"></div>
+        <div class="journey-label">/fc-office-hours</div>
+        <div class="journey-desc">Build faster</div>
+      </div>
+      <div class="journey-line"></div>
+      <div class="journey-stop">
+        <div class="journey-dot"></div>
+        <div class="journey-label">/fc-demo-day</div>
+        <div class="journey-desc">Ship the pitch</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DATA -->
+  <section class="data-section">
+    <div class="section-label">the knowledge base</div>
+    <h2>Trained on <span class="cursive">everything.</span></h2>
+    <div class="data-grid">
+      <div class="data-card">
+        <div class="data-num">2,000+</div>
+        <div class="data-label">YouTube videos</div>
+      </div>
+      <div class="data-card">
+        <div class="data-num">200+</div>
+        <div class="data-label">PG essays</div>
+      </div>
+      <div class="data-card">
+        <div class="data-num">500+</div>
+        <div class="data-label">startup articles</div>
+      </div>
+      <div class="data-card">
+        <div class="data-num">$2</div>
+        <div class="data-label">to embed it all</div>
       </div>
     </div>
   </section>
@@ -236,13 +317,11 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-left">
-        <span class="footer-logo"><span class="logo-mark">/</span>yc</span>
-        <span class="footer-by">by <a href="https://github.com/VedSoni-dev" target="_blank">Vedan Soni</a></span>
+        <a href="#" class="nav-logo">/fc</a>
+        <p>Built by <a href="#">Vedan Soni</a>.</p>
       </div>
       <div class="footer-right">
-        <a href="https://github.com/VedSoni-dev/YCstack" target="_blank">GitHub</a>
-        <a href="https://github.com/VedSoni-dev/YCstack/tree/main/skills" target="_blank">Skills</a>
-        <a href="https://github.com/VedSoni-dev/YCstack/blob/main/LICENSE" target="_blank">MIT License</a>
+        <a href="#install" class="footer-cta">Install /fc</a>
       </div>
     </div>
   </footer>
