@@ -2,6 +2,8 @@
 
 Startup wisdom, deployed at 2am.
 
+**[Live Site](https://vedsoni-dev.github.io/FCstack/)**
+
 5 Claude Code skills that read your codebase and give you founder-level advice. Mock interviews. Application builder. Office hours. Demo Day coach. All context-aware. All in your terminal.
 
 ## Install
@@ -45,4 +47,4 @@ Skills simulate real startup mentors with distinct personalities:
 
 ## Built by
 
-[Vedan Soni](https://github.com/VedSoni-dev)
+[Vedant Soni](https://github.com/VedSoni-dev)
