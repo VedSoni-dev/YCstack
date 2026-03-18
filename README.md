@@ -8,11 +8,13 @@ Startup wisdom, deployed at 2am.
 
 ## Install
 
-```bash
-git clone https://github.com/VedSoni-dev/FCstack.git ~/.claude/skills/fcstack && cd ~/.claude/skills/fcstack && bash setup
+Paste this into Claude Code:
+
+```
+Install FCstack skills from https://github.com/VedSoni-dev/FCstack — clone the repo, then copy each skill folder from skills/ into ~/.claude/skills/
 ```
 
-Then open any project in Claude Code and run `/fc`.
+Then run `/fc` in any project.
 
 ## Skills
 

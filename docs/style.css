@@ -108,6 +108,7 @@ h3{font-size:1.05rem}
 .hero-sub{max-width:480px;font-size:.95rem;color:var(--fg-1);line-height:1.8;margin-top:16px;text-align:center}
 .hero-sub em{color:var(--accent);font-style:italic}
 .hero-install{margin-top:16px}
+.install-label{font-family:'JetBrains Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:var(--fg-2);margin-bottom:8px}
 
 .code-block {
   display:inline-flex;align-items:center;gap:12px;
